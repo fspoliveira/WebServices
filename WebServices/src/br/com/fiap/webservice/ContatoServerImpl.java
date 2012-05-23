@@ -28,8 +28,7 @@ public class ContatoServerImpl implements ContatoServer{
 	@Override
 	public String deleteContact(String email) {
 		// TODO Auto-generated method stub
-		System.out.println("Contact delete sucessfull");
-		return null;
+		return contatos.remove(email);
 	}
 
 	/*@Override

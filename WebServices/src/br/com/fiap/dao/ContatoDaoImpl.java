@@ -25,9 +25,11 @@ public class ContatoDaoImpl implements ContatoDao {
 	}
 
 	@Override
-	public String remove(Contato contato) {
+	public String remove(String email) {
 		// TODO Auto-generated method stub
-		return "Removido com sicesso";
+		majorComponents.add(email);
+		myKey = Key.createKey(majorComponents, minorComponents);		
+		return kvstore.delete(myKey);
 
 	}
 
