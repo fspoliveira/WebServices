@@ -12,19 +12,21 @@ public class KVStore {
 	KVStoreConfig kconfig = new KVStoreConfig("kvstore", hhosts);
 	oracle.kv.KVStore kvstore = KVStoreFactory.getStore(kconfig);
 		
-	public void put(Key myKey, String data) {
+	public String put(Key myKey, String data) {
 				
 		Value myValue = Value.createValue(data.getBytes());	
 		kvstore.put(myKey, myValue);
+		return "Sucess";
 		
 	}
 
-	public void get(Key key) {
+	public String get(Key key) {
 				
 		ValueVersion vv = kvstore.get(key);
 		Value v = vv.getValue();		
 		String dados = new String(v.getValue());
 		System.out.println(dados.toString());
+		return dados;
 	}	
 
 }

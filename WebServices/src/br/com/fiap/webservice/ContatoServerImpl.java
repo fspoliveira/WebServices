@@ -1,24 +1,36 @@
 package br.com.fiap.webservice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.jws.WebService;
 
+import oracle.kv.Key;
+
 import br.com.fiap.bean.Contato;
+import br.com.fiap.dao.ContatoDao;
+import br.com.fiap.dao.ContatoDaoImpl;
+import br.com.fiap.kvstore.KVStore;
 
 @WebService(endpointInterface = "br.com.fiap.webservice.ContatoServer")
 public class ContatoServerImpl implements ContatoServer{
+	
+	private static List<String> majorComponents = new ArrayList<String>();
+	private static List<String> minorComponents = new ArrayList<String>();
+	private static KVStore kvstore = new KVStore();
+	private ContatoDao contatos = new ContatoDaoImpl();
+
 
 	@Override
 	public String addContact(Contato contato) {
-		System.out.println("Contact insert sucessfull");
-		return null;
+		
+		return contatos.save(contato);
+		
 	}
 
 	@Override
 	public Contato getContact(String email) {
-		System.out.println("Contact get sucessfull");
-		return null;
+		return contatos.getContato(email);
 	}
 
 	@Override
@@ -28,10 +40,10 @@ public class ContatoServerImpl implements ContatoServer{
 		return null;
 	}
 
-	@Override
+	/*@Override
 	public List<Contato> listContacts() {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 	
 }
