@@ -16,7 +16,7 @@ public class KVStore {
 				
 		Value myValue = Value.createValue(data.getBytes());	
 		kvstore.put(myKey, myValue);
-		return "Sucess";
+		return "Record insert with sucess";
 		
 	}
 
@@ -26,6 +26,11 @@ public class KVStore {
 		String dados = new String(v.getValue());
 		System.out.println(dados.toString());
 		return dados;
-	}	
+	}
+	
+	public String delete(Key myKey){
+		kvstore.delete(myKey);
+		return "Delete record with sucess"; 
+	}
 
 }
