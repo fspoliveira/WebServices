@@ -1,5 +1,7 @@
 package br.com.fiap.webservice;
 
+import java.util.List;
+
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
@@ -12,8 +14,8 @@ import br.com.fiap.bean.Contato;
 public interface ContatoServer {
 	
 	@WebMethod String addContact(Contato contato);
-	@WebMethod Contato getContact(String email);
 	@WebMethod String deleteContact(String email);
-	@WebMethod String updateContact(String email);
+	@WebMethod Contato getContact(String email);	
+	@WebMethod List<Contato> listContacts();
 	
 }

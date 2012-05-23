@@ -1,5 +1,7 @@
 package br.com.fiap.webservice;
 
+import java.util.List;
+
 import javax.jws.WebService;
 
 import br.com.fiap.bean.Contato;
@@ -27,9 +29,8 @@ public class ContatoServerImpl implements ContatoServer{
 	}
 
 	@Override
-	public String updateContact(String email) {
+	public List<Contato> listContacts() {
 		// TODO Auto-generated method stub
-		System.out.println("Contact update sucessfull");
 		return null;
 	}
 	
