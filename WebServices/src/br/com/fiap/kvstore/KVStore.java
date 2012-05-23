@@ -20,8 +20,7 @@ public class KVStore {
 		
 	}
 
-	public String get(Key key) {
-				
+	public String get(Key key) {				
 		ValueVersion vv = kvstore.get(key);
 		Value v = vv.getValue();		
 		String dados = new String(v.getValue());
