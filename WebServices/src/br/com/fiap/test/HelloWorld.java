@@ -1,7 +1,11 @@
 package br.com.fiap.test;
 
+import java.util.Iterator;
 import java.util.List;
+
+import oracle.kv.Direction;
 import oracle.kv.Key;
+import oracle.kv.KeyValueVersion;
 import oracle.kv.Value;
 import oracle.kv.ValueVersion;
 
@@ -18,6 +22,8 @@ public class HelloWorld {
 		HelloWorld h = new HelloWorld();
 		h.getRecord("cmarquesani@hotmail.com", "nome");
 		h.getRecord("cmarquesani@hotmail.com", "nome");
+		
+		h.teste();
 
 	}
 
@@ -37,5 +43,21 @@ public class HelloWorld {
 		kvstore.get(myKey);
 
 	}
+	
+	public void teste(){
+		// Create Iterator.
+		Iterator<KeyValueVersion> iter = kvstore.storeIterator(Direction.UNORDERED, 100);
+		// Now, iterate over the store.
+		while (iter.hasNext()) {
+		       KeyValueVersion keyVV = iter.next();
+		Value val = keyVV.getValue();
+		Key key = keyVV.getKey();
+		System.out.println(val.toString() + " " + key.toString() + "\n");
+		//kvstore.delete(key);
+		
+	}
+		
+		
 
+	}
 }
