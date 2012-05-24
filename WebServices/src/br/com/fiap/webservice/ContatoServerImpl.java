@@ -1,6 +1,5 @@
 package br.com.fiap.webservice;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.jws.WebService;
@@ -17,7 +16,6 @@ public class ContatoServerImpl implements ContatoServer {
 	public String addContact(Contato contato) {
 
 		return contatos.save(contato);
-
 	}
 
 	@Override
