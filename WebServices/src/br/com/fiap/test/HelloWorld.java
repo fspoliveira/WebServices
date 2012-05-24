@@ -22,7 +22,7 @@ public class HelloWorld {
 		HelloWorld h = new HelloWorld();
 		h.getRecord("cmarquesani@hotmail.com", "nome");
 		h.getRecord("cmarquesani@hotmail.com", "nome");
-		
+
 		h.teste();
 
 	}
@@ -43,21 +43,22 @@ public class HelloWorld {
 		kvstore.get(myKey);
 
 	}
-	
-	public void teste(){
+
+	public void teste() {
 		// Create Iterator.
-		Iterator<KeyValueVersion> iter = kvstore.storeIterator(Direction.UNORDERED, 100);
+		Iterator<KeyValueVersion> iter = kvstore.storeIterator(
+				Direction.UNORDERED, 100);
 		// Now, iterate over the store.
 		while (iter.hasNext()) {
-		       KeyValueVersion keyVV = iter.next();
-		Value val = keyVV.getValue();
-		Key key = keyVV.getKey();
-		System.out.println(val.toString() + " " + key.toString() + "\n");
-		//kvstore.delete(key);
-		
-	}
-		
-		
+			KeyValueVersion keyVV = iter.next();
+			Value val = keyVV.getValue();
+			Key key = keyVV.getKey();
+			System.out.println(val.toString() + " " + key.toString() + "\n");
+			String dados = new String(val.getValue());
+			System.out.println(dados);
+			// kvstore.delete(key);
+
+		}
 
 	}
 }
