@@ -45,7 +45,7 @@ public class ContatoDaoImpl implements ContatoDao {
 		c.getAttribute("br.com.fiap.bean.Contato");
 		
 		List <String> fields = c.getAttribute("br.com.fiap.bean.Contato");
-		for(int i=0; i < 2; i++){
+		for(int i=0; i < fields.size(); i++){
 			System.out.println(fields.get(i));
 			minorComponents.add(fields.get(i));
 			myKey = Key.createKey(majorComponents, minorComponents);
@@ -116,6 +116,8 @@ public class ContatoDaoImpl implements ContatoDao {
 
 		majorComponents.add(email.trim());
 		
+	    c.setEmail(email);
+		
 		minorComponents.add("nome");
 		myKey = Key.createKey(majorComponents, minorComponents);
 		c.setNome(kvstore.get(myKey));
@@ -162,58 +164,14 @@ public class ContatoDaoImpl implements ContatoDao {
 		
 		Iterator itr = getMajorPath.iterator();
 		 while(itr.hasNext()){
-			  String email;
-		     // System.out.println(itr.next());
-		 	  // c= new Contato();
-			  email= (String) itr.next();
-		       c = this.getContato(email);
+			
+		       c = this.getContato(itr.next().toString()); 
+		    		   
 		       contatos.add(c);
 		  }
 		
 		 return contatos;
 
-	}
-	
-	public void teste(){
-		
-		List<String> majorComponents = null;
-		
-		if (kvstore instanceof KVStore) {
-			majorComponents = new ArrayList<String>();
-			
-		}
-		
-		majorComponents.add("fspoliveira@yahoo.com.br");
-		
-		Key myKey = Key.createKey(majorComponents);
-
-		
-		SortedMap<Key, ValueVersion> myRecords = null;
-		
-		try {
-			myRecords = kvstore.multiGet(myKey);
-			} catch (ConsistencyException ce) {
-			// The consistency guarantee was not met
-			} catch (RequestTimeoutException re) {
-			// The operation was not completed within the
-			// timeout value
-			}
-			
-		for (Map.Entry<Key, ValueVersion> entry : myRecords.entrySet()) {
-			ValueVersion vv = entry.getValue();
-			Value v = vv.getValue();
-		}
-		
-	}
-	
-	public static void main(String args[]){
-		ContatoDaoImpl cdi = new ContatoDaoImpl();
-		List retorno = cdi.list();
-		//cdi.teste();
-		//System.out.println(cdi.list());
-		for(int i=0; i<retorno.size();i++){
-			Contato c = (Contato) retorno.get(i);
-		}
 	}
 
 }
