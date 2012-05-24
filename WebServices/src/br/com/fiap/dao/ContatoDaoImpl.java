@@ -28,24 +28,28 @@ public class ContatoDaoImpl implements ContatoDao {
 	public String remove(String email) {
 		// TODO Auto-generated method stub
 		majorComponents.add(email);
-		myKey = Key.createKey(majorComponents, minorComponents);		
+		myKey = Key.createKey(majorComponents, minorComponents);
 		return kvstore.delete(myKey);
 
 	}
 
 	@Override
 	public Contato getContato(String email) {
+
+		List<String> majorComponents = null;
+		List<String> minorComponents = null;
+
+		if (kvstore instanceof KVStore) {
+			majorComponents = new ArrayList<String>();
+			minorComponents = new ArrayList<String>();
+		}
+
 		Contato c = new Contato();
 
-		if (myKey instanceof Key) {
-			myKey = Key.createKey(majorComponents, minorComponents);	
-			c.setNome(kvstore.get(myKey));
-		} else {
-			majorComponents.add(email);
-			minorComponents.add("nome");
-			myKey = Key.createKey(majorComponents, minorComponents);
-			c.setNome(kvstore.get(myKey));
-		}
+		majorComponents.add(email);
+		minorComponents.add("nome");
+		myKey = Key.createKey(majorComponents, minorComponents);
+		c.setNome(kvstore.get(myKey));
 
 		return c;
 	}
