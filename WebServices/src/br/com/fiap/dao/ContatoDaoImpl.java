@@ -114,9 +114,14 @@ public class ContatoDaoImpl implements ContatoDao {
 		Contato c = new Contato();
 
 		majorComponents.add(email);
+		
 		minorComponents.add("nome");
 		myKey = Key.createKey(majorComponents, minorComponents);
 		c.setNome(kvstore.get(myKey));
+		
+		minorComponents.add("telefone");
+		myKey = Key.createKey(majorComponents, minorComponents);
+		c.setTelefone(kvstore.get(myKey));
 
 		return c;
 	}
