@@ -29,6 +29,7 @@ public class ContatoServerImpl implements ContatoServer {
 		return contatos.removeRecord(email);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Contato[] listContacts() {
 

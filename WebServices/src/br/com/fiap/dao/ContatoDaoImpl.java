@@ -18,7 +18,16 @@ public class ContatoDaoImpl implements ContatoDao {
 	private static KVStore kvstore = new KVStore();
 	private static Key myKey;
 	private List<Contato> contatos = new ArrayList<Contato>();
+	
+	public List<Contato> getContatos() {
+		return contatos;
+	}
 
+	public void setContatos(List<Contato> contatos) {
+		this.contatos = contatos;
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public String save(Contato contato) {
 
@@ -170,6 +179,7 @@ public class ContatoDaoImpl implements ContatoDao {
 			// kvstore.delete(key);
 		}
 
+		@SuppressWarnings("rawtypes")
 		Iterator itr = getMajorPath.iterator();
 		while (itr.hasNext()) {
 
