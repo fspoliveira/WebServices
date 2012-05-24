@@ -6,7 +6,7 @@ import br.com.fiap.webservice.ContatoServerImpl;
 public class ContatoPublisher {
 
 	public static void main(String[] args) {
-		Endpoint.publish("http://localhost:9007/contatos", new ContatoServerImpl());
+		Endpoint.publish("http://localhost:9008/contatos", new ContatoServerImpl());
 	}
 
 }

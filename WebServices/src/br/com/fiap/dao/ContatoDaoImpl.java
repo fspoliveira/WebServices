@@ -12,7 +12,7 @@ import oracle.kv.Value;
 import br.com.fiap.bean.Contato;
 import br.com.fiap.kvstore.KVStore;
 import br.com.fiap.reflect.ClassInformation;
-import br.com.fiap.test.InvocaMetodo;
+
 
 public class ContatoDaoImpl implements ContatoDao {
 
@@ -51,7 +51,10 @@ public class ContatoDaoImpl implements ContatoDao {
 	           // partypes[1] = Integer.TYPE;  
 	  
 	            Class cls = Class.forName("br.com.fiap.bean.Contato");  
-	            Method meth = cls.getMethod("get".concat(fields.get(i)), partypes);  
+	           // Method meth = cls.getMethod("get".concat(fields.get(i)), partypes);  
+	            
+	            Method meth = cls.getMethod("get".concat(fields.get(i).substring(0,1).toUpperCase()+
+	            		fields.get(i).substring(1)), partypes);  
 	             
 	            Object retobj = meth.invoke(contato);  
 	            String retval = (String)retobj;  
@@ -92,7 +95,7 @@ public class ContatoDaoImpl implements ContatoDao {
 
 		minorComponents.add("nome");
 		minorComponents.add("telefone");
-		myKey = Key.createKey(majorComponents, minorComponents);
+		myKey = Key.createKey(majorComponents);
 
 		return kvstore.delete(myKey);
 
