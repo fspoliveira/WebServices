@@ -35,11 +35,16 @@ public class ContatoServerImpl implements ContatoServer{
 	}
 
 	@Override
-	public ArrayList<Contato> listContacts() {
-		//List<Contato> cont = contatos.list();
+	public Contato listContacts() {
 		
-		//return (ArrayList<Contato>) cont;
-		return (ArrayList<Contato>) contatos.list();
+		List retorno = contatos.list();
+		Contato c = null;
+		for(int i=0; i<retorno.size();i++){
+			c = (Contato) retorno.get(i);
+		}
+		
+		//return (ArrayList) retorno;
+		return c;
 		//return null;
 	}
 	

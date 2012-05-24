@@ -206,8 +206,12 @@ public class ContatoDaoImpl implements ContatoDao {
 	
 	public static void main(String args[]){
 		ContatoDaoImpl cdi = new ContatoDaoImpl();
+		List retorno = cdi.list();
 		//cdi.teste();
-		System.out.println(cdi.list().toString());
+		//System.out.println(cdi.list());
+		for(int i=0; i<retorno.size();i++){
+			Contato c = (Contato) retorno.get(i);
+		}
 	}
 
 }
