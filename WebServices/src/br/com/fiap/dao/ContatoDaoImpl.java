@@ -8,13 +8,19 @@ import br.com.fiap.kvstore.KVStore;
 
 public class ContatoDaoImpl implements ContatoDao {
 
-	private static List<String> majorComponents = new ArrayList<String>();
-	private static List<String> minorComponents = new ArrayList<String>();
 	private static KVStore kvstore = new KVStore();
-	Key myKey;
+	private static Key myKey;
 
 	@Override
 	public String save(Contato contato) {
+		
+		List<String> majorComponents = null;
+		List<String> minorComponents = null;
+		
+		if (kvstore instanceof KVStore) {
+			majorComponents = new ArrayList<String>();
+			minorComponents = new ArrayList<String>();
+		}
 		
 		majorComponents.add(contato.getEmail());
 		minorComponents.add("nome");
@@ -25,7 +31,15 @@ public class ContatoDaoImpl implements ContatoDao {
 
 	@Override
 	public String remove(String email) {
-		// TODO Auto-generated method stub
+		
+		List<String> majorComponents = null;
+		List<String> minorComponents = null;
+		
+		if (kvstore instanceof KVStore) {
+			majorComponents = new ArrayList<String>();
+			minorComponents = new ArrayList<String>();
+		}
+		
 		majorComponents.add(email);
 		minorComponents.add("nome");
 		myKey = Key.createKey(majorComponents, minorComponents);
