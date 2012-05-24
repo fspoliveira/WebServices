@@ -20,8 +20,8 @@ public class HelloWorld {
 	public static void main(String args[]) {
 
 		HelloWorld h = new HelloWorld();
-		h.getRecord("cmarquesani@hotmail.com", "nome");
-		h.getRecord("cmarquesani@hotmail.com", "nome");
+		//h.getRecord("cmarquesani@hotmail.com", "nome");
+		//h.getRecord("cmarquesani@hotmail.com", "nome");
 
 		h.teste();
 
