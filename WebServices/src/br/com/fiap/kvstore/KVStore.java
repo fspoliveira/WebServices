@@ -33,7 +33,7 @@ public class KVStore {
 	}
 	
 	public String delete(Key myKey){
-		kvstore.delete(myKey);
+		kvstore.delete(myKey);			
 		return "Delete record with sucess"; 
 	}
 	

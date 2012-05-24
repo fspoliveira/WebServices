@@ -95,7 +95,7 @@ public class ContatoDaoImpl implements ContatoDao {
 
 		minorComponents.add("nome");
 		minorComponents.add("telefone");
-		myKey = Key.createKey(majorComponents);
+		myKey = Key.createKey(majorComponents,minorComponents);
 
 		return kvstore.delete(myKey);
 

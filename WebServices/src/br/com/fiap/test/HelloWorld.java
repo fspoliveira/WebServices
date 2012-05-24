@@ -20,11 +20,14 @@ public class HelloWorld {
 	public static void main(String args[]) {
 
 		HelloWorld h = new HelloWorld();
-		//h.getRecord("cmarquesani@hotmail.com", "nome");
-		//h.getRecord("cmarquesani@hotmail.com", "nome");
-
 		h.teste();
 
+		//h.getRecord("cmarquesani@hotmail.com", "nome");
+	   // h.getRecord("gumarquesani@hotmail.com", "nome");
+	   // h.getRecord("gumarquesani@hotmail.com", "telefone");
+		h.remove("gumarquesani@hotmail.com", "telefone");
+
+	
 	}
 
 	public void getRecord(String majorCom, String minCom) {
@@ -56,9 +59,27 @@ public class HelloWorld {
 			System.out.println(val.toString() + " " + key.toString() + "\n");
 			String dados = new String(val.getValue());
 			System.out.println(dados);
-			// kvstore.delete(key);
+		//	 kvstore.delete(key);
 
 		}
 
+	}
+	
+	public void remove(String majorCom, String minCom){
+		
+
+		List<String> majorComponents = null;
+		List<String> minorComponents = null;
+
+		if (kvstore instanceof KVStore) {
+			majorComponents = new ArrayList<String>();
+			minorComponents = new ArrayList<String>();
+		}
+
+		majorComponents.add(majorCom);
+		minorComponents.add(minCom);
+		Key myKey = Key.createKey(majorComponents, minorComponents);
+		kvstore.delete(myKey);
+		
 	}
 }
