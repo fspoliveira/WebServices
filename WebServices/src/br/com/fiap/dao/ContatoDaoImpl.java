@@ -138,6 +138,8 @@ public class ContatoDaoImpl implements ContatoDao {
 		
 		HashSet<String> getMajorPath = new HashSet<String>();
 		
+		List<Contato> contatos = new ArrayList<Contato>();
+		
 		// Now, iterate over the store.
 		while (iter.hasNext()) {
 		
