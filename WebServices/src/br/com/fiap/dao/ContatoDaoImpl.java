@@ -84,7 +84,7 @@ public class ContatoDaoImpl implements ContatoDao {
 		 * Key.createKey(majorComponents, minorComponents); kvstore.put(myKey,
 		 * contato.getTelefone());
 		 */
-		return "show";
+		return "Contact added successfully";
 
 	}
 

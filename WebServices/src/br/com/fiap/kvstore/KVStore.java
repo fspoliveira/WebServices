@@ -44,7 +44,7 @@ public class KVStore {
 	
 	public String multiDelete(Key myKey){
 		kvstore.multiDelete(myKey, null, null);		
-		return "ok";
+		return "Contact successfully removed";
 
 	}
 	
