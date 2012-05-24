@@ -15,7 +15,7 @@ public class ContatoDaoImpl implements ContatoDao {
 
 	@Override
 	public String save(Contato contato) {
-
+		
 		majorComponents.add(contato.getEmail());
 		minorComponents.add("nome");
 		myKey = Key.createKey(majorComponents, minorComponents);
@@ -27,6 +27,7 @@ public class ContatoDaoImpl implements ContatoDao {
 	public String remove(String email) {
 		// TODO Auto-generated method stub
 		majorComponents.add(email);
+		minorComponents.add("nome");
 		myKey = Key.createKey(majorComponents, minorComponents);
 		return kvstore.delete(myKey);
 
