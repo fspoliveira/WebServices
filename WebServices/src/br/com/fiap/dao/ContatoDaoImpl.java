@@ -125,6 +125,22 @@ public class ContatoDaoImpl implements ContatoDao {
 		minorComponents.add("telefone");
 		myKey = Key.createKey(majorComponents, minorComponents);
 		c.setTelefone(kvstore.get(myKey));
+		
+		minorComponents.add("endereco");
+		myKey = Key.createKey(majorComponents, minorComponents);
+		c.setEndereco((kvstore.get(myKey)));
+				
+		minorComponents.add("cidade");
+		myKey = Key.createKey(majorComponents, minorComponents);
+		c.setCidade(kvstore.get(myKey));
+		
+		minorComponents.add("estado");
+		myKey = Key.createKey(majorComponents, minorComponents);
+		c.setEstado(kvstore.get(myKey));
+		
+		minorComponents.add("pais");
+		myKey = Key.createKey(majorComponents, minorComponents);
+		c.setPais(kvstore.get(myKey));		
 
 		return c;
 	}
