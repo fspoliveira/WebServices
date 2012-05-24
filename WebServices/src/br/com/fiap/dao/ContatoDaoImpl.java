@@ -1,5 +1,6 @@
 package br.com.fiap.dao;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -10,6 +11,8 @@ import oracle.kv.KeyValueVersion;
 import oracle.kv.Value;
 import br.com.fiap.bean.Contato;
 import br.com.fiap.kvstore.KVStore;
+import br.com.fiap.reflect.ClassInformation;
+import br.com.fiap.test.InvocaMetodo;
 
 public class ContatoDaoImpl implements ContatoDao {
 
@@ -30,15 +33,46 @@ public class ContatoDaoImpl implements ContatoDao {
 
 		majorComponents.add(contato.getEmail());
 		// save nome
+		
+		ClassInformation c = new ClassInformation();
+		c.getAttribute("br.com.fiap.bean.Contato");
+		
+		List <String> fields = c.getAttribute("br.com.fiap.bean.Contato");
+		for(int i=0; i < 2; i++){
+			System.out.println(fields.get(i));
+			minorComponents.add(fields.get(i));
+			myKey = Key.createKey(majorComponents, minorComponents);
+			
+			
+			//teste
+			try {  
+	            Class partypes[] = new Class[0];  
+	           // partypes[0] = Integer.TYPE;  
+	           // partypes[1] = Integer.TYPE;  
+	  
+	            Class cls = Class.forName("br.com.fiap.bean.Contato");  
+	            Method meth = cls.getMethod("get".concat(fields.get(i)), partypes);  
+	             
+	            Object retobj = meth.invoke(contato);  
+	            String retval = (String)retobj;  
+	            
+	            kvstore.put(myKey, retval);	
+	             
+	        }  
+	        catch (Throwable e) {  
+	            System.err.println(e);  
+	        }  
+								
+		}
 
-		minorComponents.add("nome");
+		/*minorComponents.add("nome");
 		myKey = Key.createKey(majorComponents, minorComponents);
 		kvstore.put(myKey, contato.getNome());
 
 		minorComponents.add("telefone");
 		myKey = Key.createKey(majorComponents, minorComponents);
 		kvstore.put(myKey, contato.getTelefone());
-
+*/
 		return "show";
 
 	}
@@ -55,11 +89,11 @@ public class ContatoDaoImpl implements ContatoDao {
 		}
 
 		majorComponents.add(email);
-		
+
 		minorComponents.add("nome");
 		minorComponents.add("telefone");
-		myKey = Key.createKey(majorComponents, minorComponents);	
-		
+		myKey = Key.createKey(majorComponents, minorComponents);
+
 		return kvstore.delete(myKey);
 
 	}
