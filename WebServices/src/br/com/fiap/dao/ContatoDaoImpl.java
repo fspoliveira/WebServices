@@ -1,8 +1,13 @@
 package br.com.fiap.dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import oracle.kv.Direction;
 import oracle.kv.Key;
+import oracle.kv.KeyValueVersion;
+import oracle.kv.Value;
 import br.com.fiap.bean.Contato;
 import br.com.fiap.kvstore.KVStore;
 
@@ -10,6 +15,8 @@ public class ContatoDaoImpl implements ContatoDao {
 
 	private static KVStore kvstore = new KVStore();
 	private static Key myKey;
+	private List<Contato> contatos = new ArrayList<Contato>();
+	
 
 	@Override
 	public String save(Contato contato) {
@@ -70,8 +77,24 @@ public class ContatoDaoImpl implements ContatoDao {
 
 	@Override
 	public List<Contato> list() {
-		// TODO Auto-generated method
-		return null;
+		
+		Contato c = new Contato();
+		// Create Iterator.
+				Iterator<KeyValueVersion> iter = kvstore.storeIterator(
+						Direction.UNORDERED, 100);
+				// Now, iterate over the store.
+				while (iter.hasNext()) {
+					KeyValueVersion keyVV = iter.next();
+					Value val = keyVV.getValue();
+					Key key = keyVV.getKey();
+					System.out.println(val.toString() + " " + key.toString() + "\n");
+					String dados = new String(val.getValue());
+					System.out.println(dados);
+					contatos.add(c);
+					// kvstore.delete(key);
+				}
+				return contatos;
+		
 	}
 
 }

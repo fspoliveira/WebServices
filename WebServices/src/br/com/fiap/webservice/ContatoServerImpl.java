@@ -28,14 +28,13 @@ public class ContatoServerImpl implements ContatoServer{
 
 	@Override
 	public String deleteContact(String email) {
-		// TODO Auto-generated method stub
+		
 		return contatos.remove(email);
 	}
 
 	@Override
 	public ArrayList<Contato> listContacts() {
-		// TODO Auto-generated method stub
-		return null;
+		return (ArrayList<Contato>) contatos.list();
 	}
 	
 }
