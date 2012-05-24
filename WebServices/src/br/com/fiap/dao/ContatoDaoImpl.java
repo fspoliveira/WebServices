@@ -84,20 +84,19 @@ public class ContatoDaoImpl implements ContatoDao {
 	public String remove(String email) {
 
 		List<String> majorComponents = null;
-		List<String> minorComponents = null;
+		
 
 		if (kvstore instanceof KVStore) {
 			majorComponents = new ArrayList<String>();
-			minorComponents = new ArrayList<String>();
+			
 		}
 
 		majorComponents.add(email);
 
-		minorComponents.add("nome");
-		minorComponents.add("telefone");
-		myKey = Key.createKey(majorComponents,minorComponents);
+		
+		myKey = Key.createKey(majorComponents);
 
-		return kvstore.delete(myKey);
+		return kvstore.multiDelete(myKey);
 
 	}
 

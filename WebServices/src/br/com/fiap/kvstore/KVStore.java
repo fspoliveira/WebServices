@@ -26,19 +26,25 @@ public class KVStore {
 
 	public String get(Key key) {				
 		ValueVersion vv = kvstore.get(key);
-		Value v = vv.getValue();		
+		Value v = vv.getValue();			
 		String dados = new String(v.getValue());
 		System.out.println(dados.toString());
 		return dados;
 	}
 	
-	public String delete(Key myKey){
+	public String delete(Key myKey){		
 		kvstore.delete(myKey);			
 		return "Delete record with sucess"; 
 	}
 	
 	public Iterator<KeyValueVersion> storeIterator(Direction d, int y){
-		return kvstore.storeIterator(d,y);
+		return kvstore.storeIterator(d,y);	
+	}
+	
+	public String multiDelete(Key myKey){
+		kvstore.multiDelete(myKey, null, null);
+		return "ok";
+
 	}
 
 }

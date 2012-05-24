@@ -2,7 +2,7 @@ package br.com.fiap.test;
 
 import java.lang.reflect.Method;
 
-public class InvocaMetodo {
+public class TestInvokeMethod {
 	
 	public int umMetodo(int a, int b) {  
         return a + b;  
@@ -21,7 +21,7 @@ public class InvocaMetodo {
             arglist[0] = new Integer(37);  
             arglist[1] = new Integer(47);  
   
-            InvocaMetodo methobj = new InvocaMetodo();  
+            TestInvokeMethod methobj = new TestInvokeMethod();  
             Object retobj = meth.invoke(methobj, arglist);  
             Integer retval = (Integer)retobj;  
             System.out.println(retval.intValue());  

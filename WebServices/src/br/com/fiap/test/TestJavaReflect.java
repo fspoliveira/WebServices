@@ -2,7 +2,7 @@ package br.com.fiap.test;
 
 import java.lang.reflect.*;
 
-public class Teste {
+public class TestJavaReflect {
 
 	private double d;
 	public static final int i = 37;
