@@ -87,7 +87,7 @@ public class ContatoDaoImpl implements ContatoDao {
 					KeyValueVersion keyVV = iter.next();
 					Value val = keyVV.getValue();
 					Key key = keyVV.getKey();
-					System.out.println(val.toString() + " " + key.toString() + "\n");
+					//System.out.println(val.toString() + " " + key.toString() + "\n");
 					String dados = new String(val.getValue());
 					System.out.println(dados);
 					contatos.add(c);
