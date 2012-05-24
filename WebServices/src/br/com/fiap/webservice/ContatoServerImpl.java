@@ -1,5 +1,6 @@
 package br.com.fiap.webservice;
 
+import java.util.ArrayList;
 import javax.jws.WebService;
 import br.com.fiap.bean.Contato;
 import br.com.fiap.dao.ContatoDao;
@@ -31,10 +32,10 @@ public class ContatoServerImpl implements ContatoServer{
 		return contatos.remove(email);
 	}
 
-	/*@Override
-	public List<Contato> listContacts() {
+	@Override
+	public ArrayList<Contato> listContacts() {
 		// TODO Auto-generated method stub
 		return null;
-	}*/
+	}
 	
 }

@@ -2,7 +2,6 @@ package br.com.fiap.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import oracle.kv.Key;
 import br.com.fiap.bean.Contato;
 import br.com.fiap.kvstore.KVStore;
@@ -12,7 +11,7 @@ public class ContatoDaoImpl implements ContatoDao {
 	private static List<String> majorComponents = new ArrayList<String>();
 	private static List<String> minorComponents = new ArrayList<String>();
 	private static KVStore kvstore = new KVStore();
-	Key myKey = null;
+	Key myKey;
 
 	@Override
 	public String save(Contato contato) {
@@ -54,9 +53,10 @@ public class ContatoDaoImpl implements ContatoDao {
 		return c;
 	}
 
-	/*
-	 * @Override public List<Contato> list() { // TODO Auto-generated method
-	 * stub return null; }
-	 */
+	@Override
+	public List<Contato> list() {
+		// TODO Auto-generated method
+		return null;
+	}
 
 }
