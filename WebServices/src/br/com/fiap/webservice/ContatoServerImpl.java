@@ -8,19 +8,16 @@ import br.com.fiap.bean.Contato;
 import br.com.fiap.dao.ContatoDao;
 import br.com.fiap.dao.ContatoDaoImpl;
 
-
 @WebService(endpointInterface = "br.com.fiap.webservice.ContatoServer")
-public class ContatoServerImpl implements ContatoServer{
-	
-	
-	private ContatoDao contatos = new ContatoDaoImpl();
+public class ContatoServerImpl implements ContatoServer {
 
+	private ContatoDao contatos = new ContatoDaoImpl();
 
 	@Override
 	public String addContact(Contato contato) {
-		
+
 		return contatos.save(contato);
-		
+
 	}
 
 	@Override
@@ -30,22 +27,19 @@ public class ContatoServerImpl implements ContatoServer{
 
 	@Override
 	public String deleteContact(String email) {
-		
+
 		return contatos.removeRecord(email);
 	}
 
 	@Override
-	public Contato listContacts() {
-		
+	public Contato[] listContacts() {
+
 		List retorno = contatos.list();
-		Contato c = null;
-		for(int i=0; i<retorno.size();i++){
-			c = (Contato) retorno.get(i);
+		Contato[] contatos = new Contato[retorno.size()];
+		for (int i = 0; i < retorno.size(); i++) {
+			contatos[i] = (Contato) retorno.get(i);
 		}
-		
-		//return (ArrayList) retorno;
-		return c;
-		//return null;
+
+		return contatos;
 	}
-	
 }
