@@ -1,6 +1,7 @@
 package br.com.fiap.kvstore;
 
 import java.util.Iterator;
+import java.util.SortedMap;
 
 import oracle.kv.Direction;
 import oracle.kv.KVStoreConfig;
@@ -42,8 +43,16 @@ public class KVStore {
 	}
 	
 	public String multiDelete(Key myKey){
-		kvstore.multiDelete(myKey, null, null);
+		kvstore.multiDelete(myKey, null, null);		
 		return "ok";
+
+	}
+	
+	public SortedMap<Key, ValueVersion> multiGet(Key myKey){
+		//SortedMap<Key, ValueVersion> myRecords = null;
+
+		return kvstore.multiGet(myKey,null,null);
+	
 
 	}
 
