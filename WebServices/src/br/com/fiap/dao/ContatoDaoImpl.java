@@ -67,6 +67,10 @@ public class ContatoDaoImpl implements ContatoDao {
 
 				Object retobj = meth.invoke(contato);
 				String retval = (String) retobj;
+				
+				if(retval == null){
+					retval = "";
+				}
 
 				kvstore.put(myKey, retval);
 
