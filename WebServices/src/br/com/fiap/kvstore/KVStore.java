@@ -20,9 +20,8 @@ public class KVStore {
 	public String put(Key myKey, String data) {
 				
 		Value myValue = Value.createValue(data.getBytes());	
-		kvstore.put(myKey, myValue);
-		return "Record insert with sucess";
-				
+		kvstore.put(myKey, myValue);		
+		return "Record insert with sucess";				
 	}
 
 	public String get(Key key) {				

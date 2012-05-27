@@ -10,6 +10,6 @@ Para a instalação do NoSQL, seguir os segintes passos:
 2) Efetuar download do arquivo kv-ce-1.2.123.zip que se encontra na seguinte seção: "Oracle NoSQL Database, Community Edition"
 3) Descompactar o arquivo
 4) Acessar a pasta kv-1.2.123/bin/
-5) Subir o serviço  no Linux o comando é: ./run-kvlite.sh
-6) Verificar se o serviço está no no ar acessando o seguinte endereço  no browser http://localhost:5001/
+5) Subir o serviço do NoSQL no Linux o comando é: ./run-kvlite.sh
+6) Verificar se o serviço está no no ar acessando o seguinte endereço  no browser http://localhost:5001
 Executar a classe br.com.fiap.publisher.ContatoPublisher para disponibilizar os Web Services

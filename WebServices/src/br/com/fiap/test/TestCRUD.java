@@ -76,6 +76,7 @@ public class TestCRUD {
 			System.out.println(val.toString() + " " + key.toString() + "\n");
 			String dados = new String(val.getValue());
 			System.out.println(dados);
+			//apaga todos dados do Banco de dados
 			//kvstore.delete(key);
 		}
 
