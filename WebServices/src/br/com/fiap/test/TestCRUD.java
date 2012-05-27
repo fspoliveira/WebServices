@@ -11,6 +11,7 @@ import oracle.kv.ValueVersion;
 
 import java.util.ArrayList;
 
+import br.com.fiap.dao.ContatoDaoImpl;
 import br.com.fiap.kvstore.KVStore;
 
 public class TestCRUD {
@@ -19,7 +20,7 @@ public class TestCRUD {
 
 	public static void main(String args[]) {
 
-		TestCRUD h = new TestCRUD();
+		//TestCRUD h = new TestCRUD();
 
 		// h.addRecord("", "");
 
@@ -34,7 +35,9 @@ public class TestCRUD {
 
 		//System.out.println("Depois do remove");
 
-		h.listRecords();
+		//h.listRecords();
+		ContatoDaoImpl c = new ContatoDaoImpl();
+		c.list();
 
 	}
 
@@ -73,7 +76,7 @@ public class TestCRUD {
 			System.out.println(val.toString() + " " + key.toString() + "\n");
 			String dados = new String(val.getValue());
 			System.out.println(dados);
-			kvstore.delete(key);
+			//kvstore.delete(key);
 		}
 
 	}

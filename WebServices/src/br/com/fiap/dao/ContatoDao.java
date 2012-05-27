@@ -7,8 +7,8 @@ import br.com.fiap.bean.Contato;
 public interface ContatoDao {
     
     public String save(Contato contato);
-    public String removeRecord(String email);
-    public Contato getContato(String email);
+    public String removeRecord(Contato contato);
+    public Contato getContato(Contato contato);
     public List<Contato> list();  
    
 }

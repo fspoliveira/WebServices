@@ -93,7 +93,7 @@ public class ContatoDaoImpl implements ContatoDao {
 	}
 
 	@Override
-	public String removeRecord(String email) {
+	public String removeRecord(Contato contato) {
 
 		List<String> majorComponents = null;
 
@@ -101,7 +101,7 @@ public class ContatoDaoImpl implements ContatoDao {
 			majorComponents = new ArrayList<String>();
 		}
 
-		majorComponents.add(email);
+		majorComponents.add(contato.getEmail());
 		myKey = Key.createKey(majorComponents);
 
 		return kvstore.multiDelete(myKey);
@@ -109,7 +109,7 @@ public class ContatoDaoImpl implements ContatoDao {
 	}
 
 	@Override
-	public Contato getContato(String email) {
+	public Contato getContato(Contato contato) {
 
 		List<String> majorComponents = null;
 		List<String> minorComponents = null;
@@ -121,9 +121,9 @@ public class ContatoDaoImpl implements ContatoDao {
 
 		Contato c = new Contato();
 
-		majorComponents.add(email.trim());
+		majorComponents.add(contato.getEmail().trim());
 
-		c.setEmail(email);
+		c.setEmail(contato.getEmail().trim());
 
 		minorComponents.add("nome");
 		myKey = Key.createKey(majorComponents, minorComponents);
@@ -186,9 +186,9 @@ public class ContatoDaoImpl implements ContatoDao {
 		@SuppressWarnings("rawtypes")
 		Iterator itr = getMajorPath.iterator();
 		while (itr.hasNext()) {
-
-			c = this.getContato(itr.next().toString());
-
+			String email = (String) itr.next();
+			Contato contact = new Contato(email);
+			c = this.getContato(contact);
 			contatos.add(c);
 		}
 

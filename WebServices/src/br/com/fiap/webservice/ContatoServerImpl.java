@@ -19,14 +19,14 @@ public class ContatoServerImpl implements ContatoServer {
 	}
 
 	@Override
-	public Contato getContact(String email) {
-		return contatos.getContato(email);
+	public Contato getContact(Contato contato) {
+		return contatos.getContato(contato);
 	}
 
 	@Override
-	public String deleteContact(String email) {
+	public String deleteContact(Contato contato) {
 
-		return contatos.removeRecord(email);
+		return contatos.removeRecord(contato);
 	}
 
 	@SuppressWarnings("rawtypes")

@@ -10,6 +10,7 @@ public class Contato {
 	private String estado;
 	private String pais;
 	
+	
 	public Contato(){
 		
 	}
@@ -24,6 +25,11 @@ public class Contato {
 		this.cidade = cidade;
 		this.estado = estado;
 		this.pais = pais;
+	}
+
+	public Contato(String email) {
+		super();
+		this.email = email;
 	}
 
 	public String getEmail() {
