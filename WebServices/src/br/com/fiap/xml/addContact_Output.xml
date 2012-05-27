@@ -1,0 +1,7 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ns2:addContactResponse xmlns:ns2="http://webservice.fiap.com.br/">
+         <return>Contact added successfully</return>
+      </ns2:addContactResponse>
+   </S:Body>
+</S:Envelope>

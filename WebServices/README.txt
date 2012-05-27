@@ -12,4 +12,9 @@ Para a instalação do NoSQL, seguir os segintes passos:
 4) Acessar a pasta kv-1.2.123/bin/
 5) Subir o serviço do NoSQL no Linux o comando é: ./run-kvlite.sh
 6) Verificar se o serviço está no no ar acessando o seguinte endereço  no browser http://localhost:5001
+
+
 Executar a classe br.com.fiap.publisher.ContatoPublisher para disponibilizar os Web Services
+
+
+Os XMLs de entrada e saída, estão na pasta br.com.fiap.xml

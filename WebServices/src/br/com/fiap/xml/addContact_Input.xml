@@ -1,0 +1,23 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.fiap.com.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:addContact>
+         <arg0>
+            <!--Optional:-->
+            <cidade>São Paulo</cidade>
+            <!--Optional:-->
+            <email>fspo@email.com</email>
+            <!--Optional:-->
+            <endereco>Rua Angélica Pereira, 1040</endereco>
+            <!--Optional:-->
+            <estado>SP</estado>
+            <!--Optional:-->
+            <nome>Fernando Raiumndo Nonato</nome>
+            <!--Optional:-->
+            <pais>Brasil</pais>
+            <!--Optional:-->
+            <telefone>11 7070 0001</telefone>
+         </arg0>
+      </web:addContact>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,35 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ns2:listContactsResponse xmlns:ns2="http://webservice.fiap.com.br/">
+         <return>
+            <item>
+               <cidade>São Paulo</cidade>
+               <email>fspo@email.com</email>
+               <endereco>Rua Angélica Pereira, 1040</endereco>
+               <estado>SP</estado>
+               <nome>Fernando Raiumndo Nonato</nome>
+               <pais>Brasil</pais>
+               <telefone>11 7070 0001</telefone>
+            </item>
+            <item>
+               <cidade>São Paulo</cidade>
+               <email>gumarq@email.com</email>
+               <endereco>Avenida Paulista, 111</endereco>
+               <estado>SP</estado>
+               <nome>Gustavo Borges Lagoa</nome>
+               <pais>Brasil</pais>
+               <telefone>11 7070 0002</telefone>
+            </item>
+            <item>
+               <cidade>São Paulo</cidade>
+               <email>cmarq@email.com</email>
+               <endereco>Rua Antonieta Leitão, 2200</endereco>
+               <estado>SP</estado>
+               <nome>Cláudia Maria Josefina</nome>
+               <pais>Brasil</pais>
+               <telefone>11 7070 0000</telefone>
+            </item>
+         </return>
+      </ns2:listContactsResponse>
+   </S:Body>
+</S:Envelope>

@@ -1,0 +1,23 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.fiap.com.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:getContact>
+         <arg0>
+            <!--Optional:-->
+            <cidade>?</cidade>
+            <!--Optional:-->
+            <email>fspo@email.com</email>
+            <!--Optional:-->
+            <endereco>?</endereco>
+            <!--Optional:-->
+            <estado>?</estado>
+            <!--Optional:-->
+            <nome>?</nome>
+            <!--Optional:-->
+            <pais>?</pais>
+            <!--Optional:-->
+            <telefone>?</telefone>
+         </arg0>
+      </web:getContact>
+   </soapenv:Body>
+</soapenv:Envelope>

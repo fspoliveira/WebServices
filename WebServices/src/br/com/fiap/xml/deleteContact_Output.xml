@@ -1,0 +1,7 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ns2:deleteContactResponse xmlns:ns2="http://webservice.fiap.com.br/">
+         <return>Contact successfully removed</return>
+      </ns2:deleteContactResponse>
+   </S:Body>
+</S:Envelope>

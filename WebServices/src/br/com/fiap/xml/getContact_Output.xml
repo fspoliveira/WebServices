@@ -1,0 +1,15 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ns2:getContactResponse xmlns:ns2="http://webservice.fiap.com.br/">
+         <return>
+            <cidade>São Paulo</cidade>
+            <email>fspo@email.com</email>
+            <endereco>Rua Angélica Pereira, 1040</endereco>
+            <estado>SP</estado>
+            <nome>Fernando Santiago</nome>
+            <pais>Brasil</pais>
+            <telefone>11 7070 0001</telefone>
+         </return>
+      </ns2:getContactResponse>
+   </S:Body>
+</S:Envelope>

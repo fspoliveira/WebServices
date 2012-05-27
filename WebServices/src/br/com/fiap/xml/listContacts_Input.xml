@@ -1,0 +1,6 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.fiap.com.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:listContacts/>
+   </soapenv:Body>
+</soapenv:Envelope>
